@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello Vuejs</title>
+</head>
+<body>
+	<div id="app">
+		{{ message }}
+	</div>
+
+<script src="../libs/vue.min.js"></script>
+<script>
+	new Vue({
+		el: "#app",
+		data: {
+			message: "Hello Vue.js!"
+		}
+	});
+</script>
+</body>
+</html>

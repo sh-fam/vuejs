@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Components</title>
+</head>
+<body>
+	<div id="app">
+		<button type="button">Parent Component</button>
+		<my-global-component></my-global-component>
+		<my-local-component></my-local-component>
+	</div>
+
+<script src="../libs/vue.min.js"></script>
+<script>
+	// Global Component
+	Vue.component("my-global-component", {
+		template: "<div>A global component</div>"
+	});
+
+	// Local Component
+	let cmp = {
+		template: "<div>A local component</div>"
+	};
+
+	new Vue({
+		el: "#app",
+		components: {
+			// 태그명: 객체
+			"my-local-component": cmp
+		}
+	});
+</script>
+</body>
+</html>
