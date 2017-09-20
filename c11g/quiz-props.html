@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Props</title>
+</head>
+<body>
+	<div id="app">
+		<!-- passedData (props) equals to be passed-data  -->
+		<!-- read the bind property from right to left (from bottom to top in app.js)-->
+		<child-component v-bind:passed-data="message"></child-component>
+		
+		<!-- #할일 3 -->
+		<!-- sibling-component 등록 -->
+		<sibling-component v-bind:your-name="name"></sibling-component>
+	</div>
+
+<script src="../libs/vue.min.js"></script>
+<script src="./js/quiz-props.js"></script>
+</body>
+</html>

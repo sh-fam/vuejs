@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Props</title>
+</head>
+<body>
+	<div id="app">
+		<child-component v-bind:passed-data="message"></child-component>
+	</div>
+
+<script src="../libs/vue.min.js"></script>
+<script>
+	Vue.config.devtools = true;
+	
+	Vue.component("child-component", {
+		props: ["passedData"],
+		template: "<p>{{passedData}}</p>"
+	});
+
+	new Vue({
+		el: "#app",
+		data: {
+			message: "Hello Vue, passed from parent component"
+		}
+	});
+</script>
+</body>
+</html>

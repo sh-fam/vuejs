@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue Components-Props-For Sample</title>
+</head>
+<body>
+	<div id="app">
+		<todo-item v-bind:todo="todo" v-for="todo in Todos" :key="todo.id"></todo-item>
+		<ul>
+			<todo-list v-bind:language="lang" v-for="lang in Languages" :key="lang.id"></todo-list>
+		</ul>
+	</div>
+
+<script src="../libs/vue.js"></script>
+<script src="./js/quiz-props-for.js"></script>
+</body>
+</html>
