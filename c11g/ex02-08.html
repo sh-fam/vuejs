@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex02-08</title>
+	<style>
+		table{width:400px;border:1px solid black;border-collapse:collapse;}
+		table td,table th{border:1px solid black;text-align:center;}
+		table thead tr{color:yellow;background:purple;}
+		.divider td{height:2px;background:gray;}
+	</style>
+</head>
+<body>
+	<div>
+		<h1>v-for 배열, 유사배열</h1>
+		<table id="list">
+			<thead>
+				<tr>
+					<th>index</th>
+					<th>번호</th>
+					<th>이름</th>
+					<th>전화번호</th>
+					<th>주소</th>
+				</tr>
+			</thead>
+			<tbody id="contacts">
+				<tr v-for="(contact, index) in contacts">
+					<td>{{ index+1 }}</td>
+					<td>{{ contact.no }}</td>
+					<td>{{ contact.name }}</td>
+					<td>{{ contact.tel }}</td>
+					<td>{{ contact.address }}</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+		<h1>v-for 객체</h1>
+		<div id="regions">
+			<select>
+				<option disabled selected>지역을 선택하세요</option>
+				<option v-for="(val, key, index) in regions" v-bind:value="key">{{ index }}: {{ val }}</option>
+			</select>
+		</div>
+		<hr>
+		<h1>v-for + v-if</h1>
+		<table id="list2">
+			<thead>
+				<tr>
+					<th>index</th>
+					<th>번호</th>
+					<th>이름</th>
+					<th>전화번호</th>
+					<th>주소</th>
+				</tr>
+			</thead>
+			<tbody id="contacts">
+				<tr v-for="(contact, index) in contacts" v-if="contact.address.indexOf('서울') > -1">
+					<td>{{ index+1 }}</td>
+					<td>{{ contact.no }}</td>
+					<td>{{ contact.name }}</td>
+					<td>{{ contact.tel }}</td>
+					<td>{{ contact.address }}</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+		<h1>v-for template</h1>
+		<table id="list3">
+			<thead>
+				<tr>
+					<th>index</th>
+					<th>번호</th>
+					<th>이름</th>
+					<th>전화번호</th>
+					<th>주소</th>
+				</tr>
+			</thead>
+			<tbody id="contacts">
+				<template v-for="(contact, index) in contacts">
+					<tr :key="contact.no">
+						<td>{{ index+1 }}</td>
+						<td>{{ contact.no }}</td>
+						<td>{{ contact.name }}</td>
+						<td>{{ contact.tel }}</td>
+						<td>{{ contact.address }}</td>
+					</tr>
+					<tr class="divider" v-if="index % 5 === 4"><td colspan="5"></td></tr>
+				</template>
+			</tbody>
+		</table>
+	</div>
+<script src="../libs/vue.js"></script>
+<script>
+var model = {
+	contacts: [
+		{no:100, name: "설현", tel: "010-3456-8299", address: "서울"},
+		{no:99, name: "해리", tel: "010-3456-8298", address: "부산"},
+		{no:98, name: "하니", tel: "010-3456-8297", address: "제주"},
+		{no:97, name: "성소", tel: "010-3456-8296", address: "분당"},
+		{no:96, name: "지아", tel: "010-3456-8295", address: "군포"},
+		{no:95, name: "정연", tel: "010-3456-8294", address: "안양"},
+		{no:94, name: "쯔위", tel: "010-3456-8293", address: "경기"},
+		{no:93, name: "사나", tel: "010-3456-8292", address: "서울"},
+		{no:92, name: "모모", tel: "010-3456-8291", address: "충남"},
+		{no:91, name: "소진", tel: "010-3456-8290", address: "서울"}
+	],
+	regions: {
+		A: "Asia",
+		B: "America",
+		C: "Europe",
+		D: "Africa",
+		E: "Oceania"
+	}
+};
+
+var list = new Vue({
+	el: "#list",
+	data: model
+});
+
+var sel = new Vue({
+	el: "#regions",
+	data: model
+});
+
+var list2 = new Vue({
+	el: "#list2",
+	data: model
+});
+
+var list3 = new Vue({
+	el: "#list3",
+	data: model
+});
+
+
+</script>
+</body>
+</html>

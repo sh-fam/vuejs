@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex01-01</title>
+</head>
+<body>
+	<div id="sample">
+		<h2>{{ message }}</h2>
+	</div>
+
+<script src="../libs/vue.js"></script>
+<script>
+	var model = {
+		message: "Hello Vuejs"
+	}
+	
+	var app = new Vue({
+		el: "#sample",
+		data: model
+	});
+</script>
+</body>
+</html>

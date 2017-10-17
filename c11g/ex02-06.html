@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex02-06</title>
+</head>
+<body>
+	<div id="account">
+		<h1>v-if : rendering x</h1>
+		예금액: <input type="number" v-model="amount">
+		<p v-if="amount < 0">
+			<img src="./images/error.png" alt="" width="15" height="15" style="vertical-align:top"> 금액은 0원 이상이어야 합니다.
+		</p>
+		<hr>
+		<h1>v-show : rendering o</h1>
+		예금액: <input type="number" v-model="amount2">
+		<p v-show="amount2 < 0">
+			<img src="./images/error.png" alt="" width="15" height="15" style="vertical-align:top"> 금액은 0원 이상이어야 합니다.
+		</p>
+		<hr>
+		<h1>v-if / v-else-if / v-else</h1>
+		잔고: <input type="number" v-model="balance">
+		<p>회원님의 등급: <span v-if="balance >= 10000">Gold</span><span v-else-if="balance >= 5000">Silver</span><span v-else>Bronze</span></p>
+	</div>
+<script src="../libs/vue.js"></script>
+<script>
+	var model = {
+		amount: 0,
+		amount2: 0,
+		balance: 1000
+	};
+	
+	var app = new Vue({
+		el: "#account",
+		data: model
+	});
+</script>
+</body>
+</html>

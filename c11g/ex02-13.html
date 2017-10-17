@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex02-13</title>
+</head>
+<body>
+	<div id="sample">
+		<h1>computed</h1>
+		<input type="number" v-model="number">
+		<p>1부터 입력된 수까지의 합: <span>{{ sum }}</span></p>
+	</div>
+
+<script src="../libs/vue.js"></script>
+<script>
+var vm = new Vue({
+	el: "#sample",
+	data: {
+		number: 0
+	},
+	computed: {
+		sum(){
+			var n = Number(this.number);
+			if(Number.isNaN(n) || n < 0) return 0;
+			return ((1 + n) * n) / 2;
+		}
+	}
+});
+</script>
+</body>
+</html>

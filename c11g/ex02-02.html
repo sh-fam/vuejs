@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex02-02</title>
+</head>
+<body>
+	<div id="sample">
+		<p v-text="text"></p>
+		<p v-html="html"></p>
+		<input type="text" v-bind:value="value">
+		<br>
+		<img v-bind:src="src" alt="">
+		<hr>
+		<h1>v-model</h1>
+		<input type="text" v-model="twowayModel">
+		<p>양방향 바인딩 텍스트: <span v-text="twowayModel"></span></p>
+		<p>좋아하는 과일을 선택하세요!</p>
+		<input type="checkbox" v-model="fruits" value="a">사과
+		<input type="checkbox" v-model="fruits" value="k">키위
+		<input type="checkbox" v-model="fruits" value="g">포도
+		<input type="checkbox" v-model="fruits" value="w">수박
+		<input type="checkbox" v-model="fruits" value="s">딸기
+	</div>
+	<div id="sample2">
+		<p>선택한 과일들: <span v-text="fruits"></span></p>
+	</div>
+
+
+<script src="../libs/vue.js"></script>
+<script>
+	var model = {
+		text: "v-text TEXT",
+		html: "<i>v-html</i> TEXT",
+		value: "v-bind:value TEXT",
+		src: "http://sample.bmaster.kro.kr/photos/61.jpg",
+		twowayModel: "v-model two way binding",
+		fruits: []
+	}
+	
+	var app = new Vue({
+		el: "#sample",
+		data: model
+	});
+
+	var app2 = new Vue({
+		el: "#sample2",
+		data: model
+	});
+</script>
+</body>
+</html>

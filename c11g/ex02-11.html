@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex02-11</title>
+</head>
+<body>
+	<div id="sample">
+		<h1>v-pre</h1>
+		<span v-pre>{{ message }}</span>
+		<hr>
+		<h1>v-once</h1>
+		<span v-once>{{ message }}</span>
+	</div>
+
+<script src="../libs/vue.js"></script>
+<script>
+var vm = new Vue({
+	el: "#sample",
+	data: {
+		message: "Hello World!"
+	}
+});
+</script>
+</body>
+</html>

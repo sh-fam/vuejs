@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex02-04</title>
+</head>
+<body>
+	<div id="sample">
+		<h1>model 객체의 배열과 연결 checkbox, select multiple</h1>
+		<p>좋아하는 과일을 선택하세요!</p>
+		<label><input type="checkbox" v-model="fruits" value="apple">사과</label>
+		<label><input type="checkbox" v-model="fruits" value="kiwi">키위</label>
+		<label><input type="checkbox" v-model="fruits" value="grape">포도</label>
+		<label><input type="checkbox" v-model="fruits" value="watermelon">수박</label>
+		<label><input type="checkbox" v-model="fruits" value="strawberry">딸기</label>
+		<p>선택한 과일들: <span v-text="fruits"></span></p>
+		지역(복수선택 command key):
+		<br><select multiple v-model="localNumbers">
+			<option value="seoul">서울</option>
+			<option value="anayng">안양</option>
+			<option value="gunpo">군포</option>
+		</select>
+		<p>지역번호: <span v-text="localNumbers"></span></p>
+	</div>
+	<div id="sample2">
+		<h1>model 객체의 단일값과 연결 radio, select</h1>
+		<p>좋아하는 과일을 선택하세요!</p>
+		<label><input type="radio" v-model="fruit" value="apple">사과</label>
+		<label><input type="radio" v-model="fruit" value="kiwi">키위</label>
+		<label><input type="radio" v-model="fruit" value="grape">포도</label>
+		<label><input type="radio" v-model="fruit" value="watermelon">수박</label>
+		<label><input type="radio" v-model="fruit" value="strawberry">딸기</label>
+		<p>선택한 과일: <span v-text="fruit"></span></p>
+		지역:
+		<br><select v-model="localNumber">
+			<option value="seoul">서울</option>
+			<option value="anayng">안양</option>
+			<option value="gunpo">군포</option>
+		</select>
+		<p>지역번호: <span v-text="localNumber"></span></p>
+	</div>
+
+<script src="../libs/vue.js"></script>
+<script>
+	var model = {
+		fruits: [],
+		localNumbers: [],
+		fruit: null,
+		localNumber: null
+	};
+	
+	var app = new Vue({
+		el: "#sample",
+		data: model
+	});
+
+	var app2 = new Vue({
+		el: "#sample2",
+		data: model
+	});
+</script>
+</body>
+</html>
